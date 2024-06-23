@@ -1,4 +1,4 @@
--------------------------BF OGED HUB-------------------------
+-------------------------BF KGF HUB-------------------------
 
 wait(1)
 
@@ -284,8 +284,8 @@ function RadientPaid:Window(text,maincolor)
    UserTag.TextTransparency = 0
    UserTag.TextXAlignment = Enum.TextXAlignment.Left
 
-   UserName.Text = "OGED Hub"
-   UserTag.Text = "#" .. " OGED"
+   UserName.Text = "KGF Hub"
+   UserTag.Text = "#" .. " AKAR"
 
    ServersHoldFrame.Name = "ServersHoldFrame"
    ServersHoldFrame.Parent = MainFrame
@@ -3363,7 +3363,7 @@ end
 	wait(3)
 	local win = RadientPaid:Window("")
 
-	local serv = win:Server("OGED Hub V.7.13.enf", "")
+	local serv = win:Server("KGF HUB [BETA]", "")
 
 	local AutoFram = serv:Channel("Auto Farm")
 	local placeId = game.PlaceId
