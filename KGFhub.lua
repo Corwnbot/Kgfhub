@@ -72,7 +72,7 @@ local function createVisibilityButton(name, text, position, parent, guiToToggle)
 end
 
 -- Create a button to toggle GUI visibility
-createVisibilityButton("ToggleGuiButton", "KGF HUB V1 [BETA]", UDim2.new(0.9, 0, 0, 0), screenGui, mainFrame)
+createVisibilityButton("ToggleGuiButton", "KGFhub[BETA]", UDim2.new(0.9, 0, 0, 0), screenGui, mainFrame)
 
 -- Populate weapon list
 local weaponList = {}
