@@ -136,16 +136,16 @@ General_Tab:Dropdown("FastAttack","Fast",MIo,function(vu)
 end)
 
 -- Create Farm Bone section
-createLabel("Farm Bone", UDim2.new(0.05, 0, 0.05, 0), mainFrame)
-createToggleButton("AutoFarmBone", "Auto Farm Bone", UDim2.new(0.05, 0, 0.15, 0), mainFrame, function(isActive)
+createLabel("Farm Bone", UDim2.new(0.5, -100, 0.5, -22), mainFrame)
+createToggleButton("AutoFarmBone", "Auto Farm Bone", UDim2.new(0.5, -100, 0.5, -25), mainFrame, function(isActive)
     Auto_Farm_Bone = isActive
     _G.Setting_table.Farm_Bone = isActive
     Update_Setting(getgenv()['MyName'])
 end)
 
 -- Create Random Surprise section
-createLabel("Random Surprise", UDim2.new(0.05, 0, 0.35, 0), mainFrame)
-createToggleButton("AutoBuyRandomSurprise", "Auto Buy Random Surprise", UDim2.new(0.05, 0, 0.45, 0), mainFrame, function(isActive)
+createLabel("Random Surprise", UDim2.new(0.5, -100, 0.5, -20), mainFrame)
+createToggleButton("AutoBuyRandomSurprise", "Auto Buy Random Surprise", UDim2.new(0.5, -100, 0.5, -19), mainFrame, function(isActive)
     Farm_Random_S = isActive
     _G.Setting_table.Farm_Random_S = isActive
     Update_Setting(getgenv()['MyName'])
