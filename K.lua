@@ -1,6 +1,6 @@
 -------------------------BF KGF HUB-------------------------
 
-wait(1)
+wait(0.10)
 
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 local RadientPaid = {}
@@ -14,6 +14,24 @@ local pfp
 local user
 local tag
 local userinfo = {}
+
+-- Create the KGF_HUB
+
+KGF_HUB.Size = UDim2.new(0, 100, 0, 50) -- Set the size of the button
+KGF_HUB.Position = UDim2.new(0.5, 0, 0, 10) -- Position the button at the top center, slightly below the top edge
+KGF_HUB.AnchorPoint = Vector2.new(0.5, 0) -- Anchor the button to the top center
+KGF_HUB.Text = "Toggle GUI" -- Set the button text
+KGF_HUB.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Set button background color
+KGF_HUB.TextColor3 = Color3.fromRGB(255, 255, 255) -- Set button text color
+KGF_HUB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Script to toggle visibility of TopFrame
+KGF_HUB.MouseButton1Click:Connect(function()
+    TopFrame.Visible = not TopFrame.Visible
+    MainFrame.Visible = not MainFrame.Visible
+    TopFrame.Enabled = not TopFrame.Enabled
+    MainFrame.Enabled = not MainFrame.Enabled
+end)
 
 getgenv().Key = ""
 getgenv().Discord = ""
@@ -96,20 +114,6 @@ game:GetService("UserInputService").InputBegan:connect(function(inputObject, gam
    end
 end)
 
-local ToggleButton = Instance.new("TextButton")
-ToggleButton.Size = UDim2.new(0, 100, 0, 50) -- Adjust size as needed
-ToggleButton.Position = UDim2.new(1, -110, 0, 10) -- Adjust position to the top-right corner
-ToggleButton.AnchorPoint = Vector2.new(1, 0)
-ToggleButton.Text = "Toggle GUI"
-ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
-ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text
-ToggleButton.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Script to toggle visibility
-ToggleButton.MouseButton1Click:Connect(function()
-    MyGui.Enabled = not MyGui.Enabled
-end)
-
 function RadientPaid:Window(text,maincolor)
 
    local currentservertoggled = ""
@@ -138,6 +142,8 @@ function RadientPaid:Window(text,maincolor)
    local ServersHoldPadding = Instance.new("UIPadding")
    local TopFrameHolder = Instance.new("Frame")
    local TopFramess = Instance.new("Frame")
+   
+   local KGF_HUB = Instance.new("TextButton")
 
    MainFrame.Name = "MainFrame"
    MainFrame.Parent = RadientPaidSC
