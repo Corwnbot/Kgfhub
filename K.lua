@@ -7,7 +7,9 @@ _G.RandomBone = true
 --Functions
 function RandomBone()
 while _G.RandomBone == true do
-   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
+   
+   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+
    wait(0.000001)
   end
 end
