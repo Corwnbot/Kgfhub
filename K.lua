@@ -96,6 +96,24 @@ game:GetService("UserInputService").InputBegan:connect(function(inputObject, gam
    end
 end)
 
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0.5, 0, 0.5, 0) -- Half the screen size
+frame.Position = UDim2.new(0.25, 0, 0.25, 0) -- Centered
+frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red color
+frame.Parent = RadientPaidSC
+
+-- Create the toggle button
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Size = UDim2.new(0, 200, 0, 50)
+ToggleButton.Position = UDim2.new(0, 50, 0, 50) -- Top left corner
+ToggleButton.Text = "Toggle ScreenGui"
+ToggleButton.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Script to toggle visibility
+ToggleButton.MouseButton1Click:Connect(function()
+    RadientPaidSC.Enabled = not RadientPaidSC.Enabled
+end)
+
 function RadientPaid:Window(text,maincolor)
 
    local currentservertoggled = ""
