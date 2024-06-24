@@ -96,6 +96,7 @@ game:GetService("UserInputService").InputBegan:connect(function(inputObject, gam
    end
 end)
 
+-- Create a frame inside the ScreenGui (this is optional, just for demonstration)
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0.5, 0, 0.5, 0) -- Half the screen size
 frame.Position = UDim2.new(0.25, 0, 0.25, 0) -- Centered
@@ -104,9 +105,11 @@ frame.Parent = RadientPaidSC
 
 -- Create the toggle button
 local ToggleButton = Instance.new("TextButton")
-ToggleButton.Size = UDim2.new(0, 200, 0, 50)
-ToggleButton.Position = UDim2.new(0, 50, 0, 50) -- Top left corner
-ToggleButton.Text = "Toggle ScreenGui"
+ToggleButton.Size = UDim2.new(0, 100, 0, 50) -- Adjust size as needed
+ToggleButton.Position = UDim2.new(0.9, 0, 0.2, 0) -- Adjust position to the right side
+ToggleButton.Text = "Toggle GUI"
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text
 ToggleButton.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Script to toggle visibility
