@@ -1,6 +1,6 @@
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 local Window = redzlib:MakeWindow({
-  Title = "Vape Hub : Blox Fruits",
+  Title = "KGF Hub : Blox Fruits",
   SubTitle = "by wintrdude",
   SaveFolder = "redz Hub | Blox Fruits.lua"
 })
@@ -9,10 +9,10 @@ local AFKOptions = {}
 
 local Discord = Window:MakeTab({"Discord", "Info"})
 Discord:AddDiscordInvite({
-  Name = "Vape Hub | Community",
+  Name = "KGF Hub | Community",
   Description = "Join our discord community to receive information about the next update",
   Logo = "rbxassetid://160460356",
-  Invite = "https://discord.gg/vapehub"
+  Invite = "https://discord.gg/KGFhub"
 })
 local MainFarm = Window:MakeTab({"Farm", "Home"})
 if Sea3 then
