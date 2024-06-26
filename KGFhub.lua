@@ -9060,3 +9060,4 @@ local function StartDialog(DialogName)
   end
   
   StartDialog("AngelQuest1") -- 1, 9
+  redzlib:Init()
