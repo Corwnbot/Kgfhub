@@ -2,7 +2,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "KGF HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "KGFHUB"})
 -- Values
 getgenv().randomfruit = true
-getgenv().ac = true
+getgenv().autoclick = true
 getgenv().sea1 = true
 getgenv().sea2 = true
 getgenv().sea3 = true
