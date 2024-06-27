@@ -1,4 +1,8 @@
+
 repeat task.wait()until game:IsLoaded()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "KGF HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "KGFHUB"})
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
 local RunService = game:GetService("RunService")
@@ -3554,17 +3558,6 @@ local function AutoRengoku()
   end
 end
 
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local Window = Fluent:CreateWindow({
-  Title = "redz Hub : Blox Fruits",
-  SubTitle = "[ Old Source Free ]",
-  TabWidth = 160,
-  Size = UDim2.fromOffset(580, 460),
-  Acrylic = false,
-  Theme = "Dark",
-  MinimizeKey = Enum.KeyCode.LeftControl
-})
-
 local MainFarm = Window:AddTab({Title = "Farm", Icon = "home"})
 if Sea3 then
   local AutoSea = Window:AddTab({Title = "Sea", Icon = "waves"})
@@ -6233,3 +6226,5 @@ end})
 Visual:AddTextBox({Title = "Fake Fragments",Default = "",PlaceholderText = "Fragments",Callback = function(Value)
   Player.Data.Fragments.Value = Value
 end})]]
+
+OrionLib:Init()
