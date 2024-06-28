@@ -1,3 +1,5 @@
+
+
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
 	v:Disable()
 end
@@ -42,7 +44,7 @@ function CheckQuest()
  
  spawn(function()
 	while task.wait() do
-		if _G.AutoFarm then
+		if getgenv().AutoFarm then
 			CheckQuest()
 			if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				 TP(CQ)
@@ -61,7 +63,7 @@ function CheckQuest()
  end)
  spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-		if _G.AutoFarm then
+		if getgenv().AutoFarm then
 		pcall(function()
                 game:GetService'VirtualUser':CaptureController()
 			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
@@ -69,6 +71,27 @@ function CheckQuest()
         end
     end)
 end)
+
+
+
+function AutoFarmBone()
+  while getgenv().AutoFarmBone do task.wait()
+      local Enemie = GetEnemies({"Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy"})
+      if Enemie then
+        PlayerTP(Enemie.HumanoidRootPart.CFrame)
+        pcall(function()PlayerClick()(Enemie, true)end)
+      else
+        PlayerTP{CFrame = CFrame.new(-9513, 164, 5786)})
+    end
+  end
+end
+
+function PlayerClick()
+    while getgenv().AutoClick do task.wait(0.1)
+      game:GetService'VirtualUser':CaptureController()
+      game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+end
+end
 
 
 
@@ -106,9 +129,15 @@ end)
 
         MainSection:NewToggle("AutoFarm", "AutoFarm Test", function(state)
             if state then
-                _G.AutoFarm = true
+                getgenv().AutoFarm = true
             else
-                _G.AutoFarm = false
+                getgenv().AutoFarm = false
+            end
+        end)
+        
+        MainSection:NewToggle("AutoFarm", "AutoFarm Test", function(state)
+            if state then
+                AutoFarmBone()
             end
         end)
         
@@ -116,7 +145,31 @@ end)
         local Teleport = Window:NewTab("Teleport")
         local TeleportSection = Teleport:NewSection("Teleport")
 
-        TeleportSection:NewButton("Pirate Island", "Teleport you there", function()
+        TeleportSection:NewButton("Mansion", "Teleport you there", function()
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
-tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(1041.8861083984375, 16.273563385009766, 1424.93701171875)}):Play()
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-12471, 374, -7551)}):Play()
+        end)
+        TeleportSection:NewButton("Port Town", "Teleport you there", function()
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-334, 7, 5300)}):Play()
+        end)
+        TeleportSection:NewButton("Castle ON The Sea", "Teleport you there", function()
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-5073, 315, -3153)}):Play()
+        end)
+        TeleportSection:NewButton("Hydra Island", "Teleport you there", function()
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(5756, 610, -282)}):Play()
+        end)
+        TeleportSection:NewButton("Greate Tree", "Teleport you there", function()
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(2681, 1682, -7190)}):Play()
+        end)
+        TeleportSection:NewButton("Floating Turtle", "Teleport you there", function()
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-12528, 332, -8658)}):Play()
+        end)
+        TeleportSection:NewButton("Haunted Castle", "Teleport you there", function()
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(45, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-9517, 142, 5528)}):Play()
         end)
