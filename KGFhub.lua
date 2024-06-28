@@ -66,12 +66,12 @@ if _G.TaoCuttay then
     h["CuttayV4"] = true
 end
 HttpService = game:GetService("HttpService")
-local i = "Adel Hub"
+local i = "KGF Hub"
 local j = "-BloxFruit.json"
 local l = game.Players.LocalPlayer.Name .. j
 if Adel then
     HttpService = game:GetService("HttpService")
-    local i = "Adel Hub"
+    local i = "KGF Hub"
     local j = "-BloxFruit.json"
     local l = game.Players.LocalPlayer.Name .. j
 end
@@ -337,7 +337,7 @@ local A =
     {
         Name = "Blox Fruit (Adel Hub)",
         IntroEnabled = false,
-        IntroText = "Adel Hub Library",
+        IntroText = "KGF Hub Library",
         IntroIcon = "rbxassetid://13779309461",
         HidePremium = false,
         SaveConfig = false,
@@ -3189,6 +3189,7 @@ if Sea3 then
                 SaveSettings("CuttayV4", v)
             end}
     )
+    
     F:AddButton(
         {
             Name = "Tween To Acient Clock",
