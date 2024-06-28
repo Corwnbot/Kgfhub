@@ -72,20 +72,6 @@ function CheckQuest()
     end)
 end)
 
-
-
-function AutoFarmBone()
-  while getgenv().AutoFarmBone do task.wait()
-      local Enemie = GetEnemies({"Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy"})
-      if Enemie then
-        PlayerTP(Enemie.HumanoidRootPart.CFrame)
-        pcall(function()PlayerClick()(Enemie, true)end)
-      else
-        PlayerTP{CFrame = CFrame.new(-9513, 164, 5786)})
-    end
-  end
-end
-
 function PlayerClick()
     while getgenv().AutoClick do task.wait(0.1)
       game:GetService'VirtualUser':CaptureController()
@@ -135,10 +121,16 @@ end)
             end
         end)
         
-        MainSection:NewToggle("AutoFarm", "AutoFarm Test", function(state)
-            if state then
-                AutoFarmBone()
-            end
+        MainSection:NewToggle("Trade Bone", "AutoFarm Test", function(Value)
+            getgenv().AutoTradeBone = Value
+      while getgenv().AutoTradeBone do task.wait()
+        FireRemote("Bones", "Buy", 1, 1)
+      end
+        end)
+        
+        MainSection:NewToggle("Auto Click", "AutoFarm Test", function(Value)
+            getgenv().AutoClick = Value
+            PlayerClick()
         end)
         
         ---Teleport
