@@ -120,8 +120,6 @@ end)
 tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-12471, 374, -7551)}):Play()
         end)
 
-OrionLib:Init()
-
 --[[
 ```lua
 local humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid")
