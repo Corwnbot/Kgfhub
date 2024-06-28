@@ -44,7 +44,7 @@ function CheckQuest()
  
  spawn(function()
 	while task.wait() do
-		if getgenv().AutoFarm then
+		if _G.AutoFarm then
 			CheckQuest()
 			if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				 TP(CQ)
@@ -63,7 +63,7 @@ function CheckQuest()
  end)
  spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-		if getgenv().AutoFarm then
+		if _G.AutoFarm then
 		pcall(function()
                 game:GetService'VirtualUser':CaptureController()
 			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
@@ -107,15 +107,15 @@ end)
 
         MainSection:NewToggle("AutoFarm", "AutoFarm Test", function(state)
             if state then
-                getgenv().AutoFarm = true
+                _G.AutoFarm = true
             else
-                getgenv().AutoFarm = false
+                _G.AutoFarm = false
             end
         end)
         
         MainSection:NewToggle("Trade Bone", "AutoFarm Test", function(Value)
-            getgenv().AutoTradeBone = Value
-      while getgenv().AutoTradeBone do task.wait()
+            _G.AutoTradeBone = Value
+      while _G.AutoTradeBone do task.wait()
         FireRemote("Bones", "Buy", 1, 1)
       end
         end)
