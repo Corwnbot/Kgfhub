@@ -72,14 +72,6 @@ function CheckQuest()
     end)
 end)
 
-function PlayerClick()
-    while getgenv().AutoClick do task.wait(0.1)
-      game:GetService'VirtualUser':CaptureController()
-      game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-end
-end
-
-
 
 
 
@@ -126,11 +118,6 @@ end)
       while getgenv().AutoTradeBone do task.wait()
         FireRemote("Bones", "Buy", 1, 1)
       end
-        end)
-        
-        MainSection:NewToggle("Auto Click", "AutoFarm Test", function(Value)
-            getgenv().AutoClick = Value
-            PlayerClick()
         end)
         
         ---Teleport
