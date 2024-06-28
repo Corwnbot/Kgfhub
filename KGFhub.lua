@@ -29,11 +29,11 @@ function CheckQuest()
 		 Speed = 1000
 	 elseif Distance < 170 then
 		 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-		 Speed = 350
+		 Speed = 1000
 	 elseif Distance < 1000 then
 		 Speed = 350
 	 elseif Distance >= 1000 then
-		 Speed = 300
+		 Speed = 1000
 	 end
 	 game:GetService("TweenService"):Create(
 		 game.Players.LocalPlayer.Character.HumanoidRootPart,
