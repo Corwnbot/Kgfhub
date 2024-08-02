@@ -15,6 +15,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
+    Player = Window:AddTab({ Title = "NOT WORK", Icon = "baby" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "palmtree" }),
     Fruit = Window:AddTab({ Title = "Devil Fruit", Icon = "cherry" }),
     Raid = Window:AddTab({ Title = "Dungeon", Icon = "swords" }),
@@ -3750,13 +3751,15 @@ if Third_Sea then
 
 
 
-     Tabs.Main:AddParagraph({
-        Title = "Elite Hunter",
-        Content = "Auto find and kill boss elite"
+ local LabelElite = Tabs.Main:AddParagraph({
+        Title = "Elite Stats : not Spawn",
+        Content = "For ELITE HUNTER"
     })
     
-    local LabelElite = Tabs.Main:AddParagraph({Title = "Elite Stats : not Spawn"})
-  local LabelElit3 = Tabs.Main:AddParagraph({Title = "Elite Hunter progress : 0"})
+    local LabelElite3 = Tabs.Main:AddParagraph({
+        Title = "Elite Hunter progress : 0",
+        Content = "For ELITE HUNTER"
+    })
   
   task.spawn(function()
     while task.wait() do
@@ -3775,8 +3778,7 @@ if Third_Sea then
       end
     end)
   end
-
-
+  
     local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Auto Elite Hunter", Default = false })
 
     ToggleElite:OnChanged(function(Value)
