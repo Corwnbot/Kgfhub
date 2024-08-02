@@ -15,7 +15,6 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
-    Player = Window:AddTab({ Title = "NOT WORK", Icon = "baby" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "palmtree" }),
     Fruit = Window:AddTab({ Title = "Devil Fruit", Icon = "cherry" }),
     Raid = Window:AddTab({ Title = "Dungeon", Icon = "swords" }),
@@ -2323,6 +2322,22 @@ UIGradient.Parent = ImageButton
 UIAspectRatioConstraint.Parent = ImageButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
+local function VerifyNPC(EnemieName)
+  local Stats
+  local function Verify(_,Enemie)
+    if Enemie.Name == EnemieName then
+      local EnemieH = Enemie:FindFirstChild("Humanoid")
+      
+      if EnemieH and EnemieH.Health > 0 then
+        Stats = true
+      end
+    end
+  end
+  
+  table.foreach(Enemies:GetChildren(), Verify)
+  table.foreach(ReplicatedStorage:GetChildren(), Verify)
+  return Stats
+end
 
 local function HCEGY_fake_script()
 	local script = Instance.new('LocalScript', UIGradient)
