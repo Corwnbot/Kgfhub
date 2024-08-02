@@ -3402,6 +3402,7 @@ spawn(function()
 
     ToggleAutoFarmBoss:OnChanged(function(Value)
 		getgenv().AutoBoss = Value
+		CheckBossQuest()
     end)
 
     Options.ToggleAutoFarmBoss:SetValue(false)
@@ -3409,12 +3410,15 @@ spawn(function()
         while wait() do
             if getgenv().AutoBoss and BypassTP then
                 pcall(function()
-                CheckBossQuest()
+                CheckBossQuest(SelectBoss)
+                
                     if game:GetService("Workspace").Enemies:FindFirstChild(getgenv().SelectBoss) then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do 
                             if v.Name == getgenv().SelectBoss then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
+                                    CheckBossQuest()
+                                    CheckBossQuest(SelectBoss)
                                         AutoHaki()
                                         EquipTool(SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
