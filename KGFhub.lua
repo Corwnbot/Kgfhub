@@ -2503,7 +2503,7 @@ local posZ = 0
     
      Tabs.Main:AddButton({
         Title = "Auto Farm Chet",
-        Description = "farm all chests [BETA]",
+        Description = "farm all chests [BETA",
         Callback = function(Value)
     getgenv().AutoChestTween = Value
     AutoChestTween()
@@ -2514,7 +2514,6 @@ local posZ = 0
     local function AutoChestTween()
   while getgenv().AutoChestTween do task.wait()
     local ChestDistance = math.huge
-    local Chest = nil
     local plrChar = Player and Player.Character and Player.Character.PrimaryPart
     
     for _,ChestVerify in pairs(workspace:GetChildren()) do
@@ -2522,7 +2521,7 @@ local posZ = 0
         if ChestVerify.Name == "Chest3" or ChestVerify.Name == "Chest2" or ChestVerify.Name == "Chest1" then
           if plrChar and (plrChar.Position - ChestVerify.Position).Magnitude <= ChestDistance then
             ChestDistance = (plrChar.Position - ChestVerify.Position).Magnitude
-            Chest = ChestVerify
+           local Chest = ChestVerify
           end
         end
       end
