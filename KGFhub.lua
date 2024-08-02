@@ -2322,22 +2322,6 @@ UIGradient.Parent = ImageButton
 UIAspectRatioConstraint.Parent = ImageButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
-local function VerifyNPC(EnemieName)
-  local Stats
-  local function Verify(_,Enemie)
-    if Enemie.Name == EnemieName then
-      local EnemieH = Enemie:FindFirstChild("Humanoid")
-      
-      if EnemieH and EnemieH.Health > 0 then
-        Stats = true
-      end
-    end
-  end
-  
-  table.foreach(Enemies:GetChildren(), Verify)
-  table.foreach(ReplicatedStorage:GetChildren(), Verify)
-  return Stats
-end
 
 local function HCEGY_fake_script()
 	local script = Instance.new('LocalScript', UIGradient)
@@ -3766,34 +3750,12 @@ if Third_Sea then
 
 
 
- local LabelElite = Tabs.Main:AddParagraph({
-        Title = "Elite Stats : not Spawn",
-        Content = "For ELITE HUNTER"
+     Tabs.Main:AddParagraph({
+        Title = "Elite Hunter",
+        Content = "Auto find and kill boss elite"
     })
-    
-    local LabelElite3 = Tabs.Main:AddParagraph({
-        Title = "Elite Hunter progress : 0",
-        Content = "For ELITE HUNTER"
-    })
-  
-  task.spawn(function()
-    while task.wait() do
-      if VerifyNPC("Urban") or VerifyNPC("Deandre") or VerifyNPC("Diablo") then
-        LabelElite:Set("Elite Stats : Spawned")
-      else
-        LabelElite:Set("Elite Stats : not Spawn")
-      end
-    end
-  end)
-  
-  if Player.UserId ~= 2764978820 then
-    task.spawn(function()
-      while task.wait(1) do
-        LabelElit3:Set("Elite Hunter progress : " .. FireRemote("EliteHunter", "Progress"))
-      end
-    end)
-  end
-  
+
+
     local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Auto Elite Hunter", Default = false })
 
     ToggleElite:OnChanged(function(Value)
