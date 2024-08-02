@@ -2311,7 +2311,7 @@ ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
 ImageButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
-ImageButton.Image = "http://www.roblox.com/asset/?id=18762562251"
+ImageButton.Image = "rbxassetid://18752174558"
 
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = ImageButton
@@ -3409,7 +3409,6 @@ spawn(function()
         while wait() do
             if getgenv().AutoBoss and BypassTP then
                 pcall(function()
-                CheckBossQuest(SelectBoss)
                     if game:GetService("Workspace").Enemies:FindFirstChild(getgenv().SelectBoss) then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do 
                             if v.Name == getgenv().SelectBoss then
