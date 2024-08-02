@@ -2501,7 +2501,7 @@ local posZ = 0
         game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
     end
     
-     Tabs.Main:AddButton({
+     Tabs.Main:AddToggle({
         Title = "Auto Farm Chet",
         Description = "farm all chests",
         Callback = function(Value)
@@ -2510,7 +2510,8 @@ local posZ = 0
   end
     })
     
-   function AutoChestTween()
+    
+    local function AutoChestTween()
   while getgenv().AutoChestTween do task.wait()
     local ChestDistance = math.huge
     local Chest = nil
@@ -2527,7 +2528,7 @@ local posZ = 0
       end
     end
     if Chest then
-      PlayerTP(Chest.CFrame)
+      Tween(Chest.CFrame)
     end
   end
 end
