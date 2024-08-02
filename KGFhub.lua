@@ -15,7 +15,6 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
-    Player = Window:AddTab({ Title = "Player [ NOT WORK ]", Icon = "baby" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "palmtree" }),
     Fruit = Window:AddTab({ Title = "Devil Fruit", Icon = "cherry" }),
     Raid = Window:AddTab({ Title = "Dungeon", Icon = "swords" }),
@@ -3755,6 +3754,27 @@ if Third_Sea then
         Title = "Elite Hunter",
         Content = "Auto find and kill boss elite"
     })
+    
+    local LabelElite = Tabs.Main:AddParagraph({Title = "Elite Stats : not Spawn"})
+  local LabelElit3 = Tabs.Main:AddParagraph({Title = "Elite Hunter progress : 0"})
+  
+  task.spawn(function()
+    while task.wait() do
+      if VerifyNPC("Urban") or VerifyNPC("Deandre") or VerifyNPC("Diablo") then
+        LabelElite:Set("Elite Stats : Spawned")
+      else
+        LabelElite:Set("Elite Stats : not Spawn")
+      end
+    end
+  end)
+  
+  if Player.UserId ~= 2764978820 then
+    task.spawn(function()
+      while task.wait(1) do
+        LabelElit3:Set("Elite Hunter progress : " .. FireRemote("EliteHunter", "Progress"))
+      end
+    end)
+  end
 
 
     local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Auto Elite Hunter", Default = false })
@@ -4681,66 +4701,6 @@ spawn(function()
         end
     end
 end)
---------------------------------------------------------------------------------------------------------------------------------------------
---Player
-
-local Playerslist = {}
-for i,v in pairs(game:GetService("Players"):GetChildren()) do
-    table.insert(Playerslist,v.Name)
-end
-
-local SelectedPly = Tabs.Player:AddDropdown("SelectedPly", {
-    Title = "Dropdown",
-    Values = Playerslist,
-    Multi = false,
-    Default = 1,
-})
-
-SelectedPly:SetValue("nil")
-SelectedPly:OnChanged(function(Value)
-    getgenv().SelectPly = Value
-end)
-
-    
-Tabs.Player:AddButton({
-    Title = "Refresh Dropdown",
-    Description = "Refresh player list",
-    Callback = function()
-        Playerslist = {}
-        SelectedPly:Clear()
-        for i,v in pairs(game:GetService("Players"):GetChildren()) do  
-            SelectedPly:Add(v.Name)
-        end
-    end          
-})
-
-local ToggleTeleport = Tabs.Player:AddToggle("ToggleTeleport", {Title = "Teleport To Player", Default = false })
-ToggleTeleport:OnChanged(function(Value)
-    getgenv().TeleportPly = Value
-    pcall(function()
-        if getgenv().TeleportPly then
-            repeat Tween(game:GetService("Players")[getgenv().SelectPly].Character.HumanoidRootPart.CFrame) wait() until getgenv().TeleportPly == false
-        end
-    end)
-end)
-
-Options.ToggleTeleport:SetValue(false)
-
-
-
-local ToggleQuanSat = Tabs.Player:AddToggle("ToggleQuanSat", {Title = "Spectate Player", Default = false })
-ToggleQuanSat:OnChanged(function(Value)
-    SpectatePlys = Value
-    local plr1 = game:GetService("Players").LocalPlayer.Character.Humanoid
-    local plr2 = game:GetService("Players"):FindFirstChild(getgenv().SelectPly)
-    repeat wait(.1)
-        game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players"):FindFirstChild(getgenv().SelectPly).Character.Humanoid
-    until SpectatePlys == false 
-    game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
-end)
-Options.ToggleQuanSat:SetValue(false)
-
-
 -----------------------------------------------------------------------------------------------------------------------------------------------
 --Teleport
 Tabs.Teleport:AddParagraph({
