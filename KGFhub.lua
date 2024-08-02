@@ -2501,9 +2501,9 @@ local posZ = 0
         game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
     end
     
-     Tabs.Main:AddToggle({
+     Tabs.Main:AddButton({
         Title = "Auto Farm Chet",
-        Description = "farm all chests",
+        Description = "farm all chests [BETA]",
         Callback = function(Value)
     getgenv().AutoChestTween = Value
     AutoChestTween()
