@@ -3409,6 +3409,7 @@ spawn(function()
         while wait() do
             if getgenv().AutoBoss and BypassTP then
                 pcall(function()
+                CheckBossQuest()
                     if game:GetService("Workspace").Enemies:FindFirstChild(getgenv().SelectBoss) then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == getgenv().SelectBoss then
