@@ -2500,6 +2500,37 @@ local posZ = 0
     if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn") then
         game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
     end
+    
+     Tabs.Main:AddButton({
+        Title = "Auto Farm Chet",
+        Description = "farm all chests",
+        Callback = function(Value)
+    getgenv().AutoChestTween = Value
+    AutoChestTween()
+  end
+    })
+    
+   function AutoChestTween()
+  while getgenv().AutoChestTween do task.wait()
+    local ChestDistance = math.huge
+    local Chest = nil
+    local plrChar = Player and Player.Character and Player.Character.PrimaryPart
+    
+    for _,ChestVerify in pairs(workspace:GetChildren()) do
+      if ChestVerify:IsA("BasePart") and ChestVerify.Transparency < 1 then
+        if ChestVerify.Name == "Chest3" or ChestVerify.Name == "Chest2" or ChestVerify.Name == "Chest1" then
+          if plrChar and (plrChar.Position - ChestVerify.Position).Magnitude <= ChestDistance then
+            ChestDistance = (plrChar.Position - ChestVerify.Position).Magnitude
+            Chest = ChestVerify
+          end
+        end
+      end
+    end
+    if Chest then
+      PlayerTP(Chest.CFrame)
+    end
+  end
+end
 
     local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {Title = "Auto Near Mob", Default = false })
     ToggleMobAura:OnChanged(function(Value)
