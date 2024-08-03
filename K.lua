@@ -9537,8 +9537,8 @@ local function wl(key)
 end
 
 spawn(function()
-    local KEY = ReadKey()
-    if KEY and #KEY >= 2 then
+    local KEY = nil
+    if KEY = then
         object.Desc.Text = 'Succesfully loaded key!'
         Notify.New("Succesfully loaded key!", 5)
         wl(KEY)
