@@ -2296,9 +2296,8 @@ function BTP(p)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
----- Create the GUI elements
+--- Create the GUI elements
 local ScreenGui = Instance.new("ScreenGui")
-local BorderFrame = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -2308,28 +2307,25 @@ local UIStroke = Instance.new("UIStroke")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- Set up the BorderFrame
-BorderFrame.Parent = ScreenGui
-BorderFrame.BackgroundTransparency = 1
-BorderFrame.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
-BorderFrame.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
+-- Set up the TextButton
+TextButton.Parent = ScreenGui
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Background color black
+TextButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+TextButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
+TextButton.Text = "testHub"
+TextButton.TextColor3 = Color3.fromRGB(255, 0, 0) -- Text color red
 
--- Add the UIStroke to create a glowing effect
-UIStroke.Parent = BorderFrame
+-- Add UIStroke for border
+UIStroke.Parent = TextButton
 UIStroke.Color = Color3.fromRGB(255, 0, 0) -- Red border color
 UIStroke.Thickness = 4 -- Adjust thickness as needed
 UIStroke.Transparency = 0.5 -- Adjust transparency for glow effect
 
--- Set up the TextButton
-TextButton.Parent = BorderFrame
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Background color black
-TextButton.Size = UDim2.new(1, 0, 1, 0)
-TextButton.Text = "testHub"
-TextButton.TextColor3 = Color3.fromRGB(255, 0, 0) -- Text color red
-
--- Set up other elements
+-- Add UICorner to round corners
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = TextButton
+
+-- Maintain aspect ratio
 UIAspectRatioConstraint.Parent = TextButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
@@ -2337,7 +2333,7 @@ UIAspectRatioConstraint.AspectRatio = 0.988
 local function GlowingEffect()
 	local TweenService = game:GetService("TweenService")
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true)
-	local tweenGoals = {Transparency = 0}
+	local tweenGoals = {Transparency = 0.3}
 	local tween = TweenService:Create(UIStroke, tweenInfo, tweenGoals)
 	tween:Play()
 end
