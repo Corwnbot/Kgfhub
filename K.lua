@@ -2296,11 +2296,10 @@ function BTP(p)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
---- Create the GUI elements
+---- Create the GUI elements
 local ScreenGui = Instance.new("ScreenGui")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
-local UIGradient = Instance.new("UIGradient")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 -- Set up the ScreenGui
@@ -2318,13 +2317,12 @@ TextButton.TextColor3 = Color3.fromRGB(255, 0, 0) -- Text color red
 -- Set up other elements
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = TextButton
-UIGradient.Parent = TextButton
 UIAspectRatioConstraint.Parent = TextButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
--- Function to rotate the UIGradient
+-- Function to rotate the UIGradient (if you decide to add it back)
 local function HCEGY_fake_script()
-	local script = Instance.new('LocalScript', UIGradient)
+	local script = Instance.new('LocalScript', TextButton) -- Changed to TextButton
 
 	local TweenService = game:GetService("TweenService")
 	local tweeninfo = TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
@@ -2372,7 +2370,7 @@ local function YTZCAJC_fake_script()
 		end
 	end)
 	script.Parent.MouseButton1Click:Connect(function()
-		game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
+		game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
 	end)
 end
 coroutine.wrap(YTZCAJC_fake_script)()
