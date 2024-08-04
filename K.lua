@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 --------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "KGF Hub",
-    SubTitle = "By AKAR",
+    Title = "Test Hub",
+    SubTitle = "By Dare",
     TabWidth = 160,
     Size = UDim2.fromOffset(450, 300),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
@@ -2296,30 +2296,33 @@ function BTP(p)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
----Close gui
----Close gui
+--- Create the GUI elements
 local ScreenGui = Instance.new("ScreenGui")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UIGradient = Instance.new("UIGradient")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
+-- Set up the ScreenGui
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+-- Set up the TextButton
 TextButton.Parent = ScreenGui
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Background color black
 TextButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
 TextButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
 TextButton.Text = "testHub"
+TextButton.TextColor3 = Color3.fromRGB(255, 0, 0) -- Text color red
 
+-- Set up other elements
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = TextButton
 UIGradient.Parent = TextButton
-
 UIAspectRatioConstraint.Parent = TextButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
+-- Function to rotate the UIGradient
 local function HCEGY_fake_script()
 	local script = Instance.new('LocalScript', UIGradient)
 
@@ -2330,6 +2333,7 @@ local function HCEGY_fake_script()
 end
 coroutine.wrap(HCEGY_fake_script)()
 
+-- Function to drag the TextButton and handle clicks
 local function YTZCAJC_fake_script()
 	local script = Instance.new('LocalScript', TextButton)
 
