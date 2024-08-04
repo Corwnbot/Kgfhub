@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 --------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "Test Hub",
-    SubTitle = "By Dare",
+    Title = "IG Hub",
+    SubTitle = "By Akar",
     TabWidth = 160,
     Size = UDim2.fromOffset(450, 300),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
@@ -14,6 +14,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
+    WP = Window:AddTab({ Title = "Weapon", Icon = "palmtree" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "palmtree" }),
     Fruit = Window:AddTab({ Title = "Devil Fruit", Icon = "cherry" }),
@@ -2301,7 +2302,6 @@ local ScreenGui = Instance.new("ScreenGui")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-local UIStroke = Instance.new("UIStroke")
 
 -- Set up the ScreenGui
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -2312,37 +2312,32 @@ TextButton.Parent = ScreenGui
 TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Background color black
 TextButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
 TextButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
-TextButton.Text = "testHub"
+TextButton.Text = "IG HUB"
 TextButton.TextColor3 = Color3.fromRGB(255, 0, 0) -- Text color red
 
--- Add UIStroke for border
-UIStroke.Parent = TextButton
-UIStroke.Color = Color3.fromRGB(255, 0, 0) -- Red border color
-UIStroke.Thickness = 4 -- Adjust thickness as needed
-UIStroke.Transparency = 0.5 -- Adjust transparency for glow effect
-
--- Add UICorner to round corners
+-- Set up other elements
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = TextButton
-
--- Maintain aspect ratio
 UIAspectRatioConstraint.Parent = TextButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
--- Function to create a glowing effect
-local function GlowingEffect()
+-- Function to rotate the UIGradient (if you decide to add it back)
+local function HCEGY_fake_script()
+	local script = Instance.new('LocalScript', TextButton) -- Changed to TextButton
+
 	local TweenService = game:GetService("TweenService")
-	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true)
-	local tweenGoals = {Transparency = 0.3}
-	local tween = TweenService:Create(UIStroke, tweenInfo, tweenGoals)
+	local tweeninfo = TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
+	local tween = TweenService:Create(script.Parent, tweeninfo, {Rotation = 360})
 	tween:Play()
 end
-GlowingEffect()
+coroutine.wrap(HCEGY_fake_script)()
 
 -- Function to drag the TextButton and handle clicks
-local function DragAndClick()
+local function YTZCAJC_fake_script()
+	local script = Instance.new('LocalScript', TextButton)
+
 	local UIS = game:GetService('UserInputService')
-	local frame = TextButton
+	local frame = script.Parent
 	local dragToggle = nil
 	local dragSpeed = 0.25
 	local dragStart = nil
@@ -2375,11 +2370,11 @@ local function DragAndClick()
 			end
 		end
 	end)
-	frame.MouseButton1Click:Connect(function()
+	script.Parent.MouseButton1Click:Connect(function()
 		game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
 	end)
 end
-DragAndClick()
+coroutine.wrap(YTZCAJC_fake_script)()
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Hehe
 local posX = 0
@@ -2543,85 +2538,6 @@ local posZ = 0
         end
         end
       end)
-
-      Tabs.Main:AddButton({
-        Title = "Redeem All Code",
-        Description = "Redeem all code x2 exp",
-        Callback = function()
-            UseCode()
-        end
-    })
-
-    function UseCode(Text)
-        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
-    end
-    UseCode("Sub2Fer999")
-    UseCode("Enyu_is_Pro")
-    UseCode("Magicbus")
-    UseCode("JCWK")
-    UseCode("Starcodeheo")
-    UseCode("Bluxxy")
-    UseCode("THEGREATACE")
-    UseCode("SUB2GAMERROBOT_EXP1")
-    UseCode("StrawHatMaine")
-    UseCode("Sub2OfficialNoobie")
-    UseCode("SUB2NOOBMASTER123")
-    UseCode("Sub2Daigrock")
-    UseCode("Axiore")
-    UseCode("TantaiGaming")
-    UseCode("STRAWHATMAINE")
-
-
-
-    Tabs.Main:AddButton({
-        Title = "Fps Booster",
-        Description = "Boost your fps",
-        Callback = function()
-            FPSBooster()
-        end
-    })
-
-    function FPSBooster()
-        local decalsyeeted = true
-        local g = game
-        local w = g.Workspace
-        local l = g.Lighting
-        local t = w.Terrain
-        sethiddenproperty(l,"Technology",2)
-        sethiddenproperty(t,"Decoration",false)
-        t.WaterWaveSize = 0
-        t.WaterWaveSpeed = 0
-        t.WaterReflectance = 0
-        t.WaterTransparency = 0
-        l.GlobalShadows = false
-        l.FogEnd = 9e9
-        l.Brightness = 0
-        settings().Rendering.QualityLevel = "Level01"
-        for i, v in pairs(g:GetDescendants()) do
-            if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                v.Material = "Plastic"
-                v.Reflectance = 0
-            elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
-                v.Transparency = 1
-            elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                v.Lifetime = NumberRange.new(0)
-            elseif v:IsA("Explosion") then
-                v.BlastPressure = 1
-                v.BlastRadius = 1
-            elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                v.Enabled = false
-            elseif v:IsA("MeshPart") then
-                v.Material = "Plastic"
-                v.Reflectance = 0
-                v.TextureID = 10385902758728957
-            end
-        end
-        for i, e in pairs(l:GetChildren()) do
-            if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                e.Enabled = false
-            end
-        end
-    end
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Mastery
@@ -3166,165 +3082,6 @@ end
 end
 end)
 
-
-
-
-Tabs.Main:AddParagraph({
-    Title = "Misc Farm",
-    Content = "Bone & Cake Prince & "
-})
-
-local ToggleBone = Tabs.Main:AddToggle("ToggleBone", {Title = "Auto Farm Bone", Default = false })
-ToggleBone:OnChanged(function(Value)
-    getgenv().AutoBone = Value
-end)
-Options.ToggleBone:SetValue(false)
-local FaiFaoQuestBone =  CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
-
-
-spawn(function()
-    while wait() do
-        if getgenv().AutoBone then
-            pcall(function()
-                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                if not string.find(QuestTitle, "Demonic Soul") then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                end
-                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                    if BypassTP then
-                        wait()
-                       if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - FaiFaoQuestBone.Position).Magnitude > 2500 then
-                       BTP(FaiFaoQuestBone)
-              
-                       elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - FaiFaoQuestBone.Position).Magnitude < 2500 then
-               
-                       Tween(FaiFaoQuestBone)
-                       end
-                 else
-          
-                         Tween(FaiFaoQuestBone)
-                         end
-                if (FaiFaoQuestBone.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then    
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","HauntedQuest2",1)
-                    end
-                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
-                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Demonic Soul") then
-                                        repeat task.wait()
-                                            AutoHaki()
-                                            EquipTool(SelectWeapon)
-                                            Tween(v.HumanoidRootPart.CFrame * Pos)
-			                                v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
-                                            v.HumanoidRootPart.Transparency = 1
-                                            v.Humanoid.JumpPower = 0
-                                            v.Humanoid.WalkSpeed = 0
-                                            v.HumanoidRootPart.CanCollide = false
-                                            FarmPos = v.HumanoidRootPart.CFrame
-                                            MonFarm = v.Name
-                                            Click()
-                                        until not getgenv().AutoBone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                    else
-                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                                    end
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul") then
-                        Tween(v.HumanoidRootPart.CFrame * Pos2)
-                        end
-                    end
-                    
-                end
-            end)
-        end
-    end
-end)
-
-
-local ToggleCake = Tabs.Main:AddToggle("ToggleCake", {Title = "Auto Farm Cake Prince", Default = false })
-ToggleCake:OnChanged(function(Value)
- getgenv().CakePrince = Value
-end)
-Options.ToggleCake:SetValue(false)
-
-spawn(function()
-    while task.wait() do
-    if getgenv().CakePrince then
-    game.ReplicatedStorage.Remotes.CommF_:InvokeServer("CakePrinceSpawner")
-    if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
-    if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
-    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-    if getgenv().CakePrince and v.Name == "Cake Prince" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-    repeat task.wait()
-    AutoHaki()
-    EquipTool(SelectWeapon)
-    Tween(v.HumanoidRootPart.CFrame * Pos)
-    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-    v.HumanoidRootPart.Transparency = 1
-    v.Humanoid.JumpPower = 0
-    v.Humanoid.WalkSpeed = 0
-    v.HumanoidRootPart.CanCollide = false
-    FarmPos = v.HumanoidRootPart.CFrame
-    MonFarm = v.Name
-    game:GetService'VirtualUser':CaptureController()
-    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
-	BringMobs = false
-    until not getgenv().CakePrince or not v.Parent or v.Humanoid.Health <= 0
-	BringMobs = true
-    end
-    end
-    else
-      if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 and (CFrame.new(-1990.672607421875, 4532.99951171875, -14973.6748046875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 2000 then
-    Tween(CFrame.new(-2151.82153, 149.315704, -12404.9053))
-	BirngMobs = true
-    end
-    end
-    else
-      if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
-    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-    if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-    repeat task.wait()
-    AutoHaki()
-    EquipTool(SelectWeapon)
-    Tween(v.HumanoidRootPart.CFrame * Pos)
-    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-    v.HumanoidRootPart.Transparency = 1
-    v.Humanoid.JumpPower = 0
-    v.Humanoid.WalkSpeed = 0
-    v.HumanoidRootPart.CanCollide = false
-    FarmPos = v.HumanoidRootPart.CFrame
-    MonFarm = v.Name
-    game:GetService'VirtualUser':CaptureController()
-    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
-    until not getgenv().CakePrince or not v.Parent or v.Humanoid.Health <= 0
-    end
-    end
-    end
-    else
-      local cakepos = CFrame.new(-2077, 252, -12373)
-    if BypassTP then
-    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude > 2000 then
-    BTP(cakepos)
-    wait(3)
-    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude < 2000 then
-    Tween(cakepos)
-    end
-    else
-    Tween(v.HumanoidRootPart.CFrame * Pos2)
-    end
-    end
-    end
-    end
-    end
-    end)
-
-
-
     local ToggleVatChatKiDi = Tabs.Main:AddToggle("ToggleVatChatKiDi", {Title = "Auto Farm Ectoplasm", Default = false })
     ToggleVatChatKiDi:OnChanged(function(Value)
         getgenv().Ecto = Value
@@ -3574,6 +3331,21 @@ if Third_Sea then
         Title = "Rough Sea",
         Content = "Auto rough sea"
     })
+    local ToggleTW = Tabs.Main:AddToggle("ToggleTW", {Title = "Auto Press W", Default = false })
+
+   ToggleTW:OnChanged(function(Value)
+    getgenv().AutoW = Value
+    end)
+    Options.ToggleTW:SetValue(false)
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if getgenv().AutoW then
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+                end
+            end)
+        end
+        end)
 
 
     local ToggleBoat = Tabs.Main:AddToggle("ToggleBoat", {Title = "Auto Buy Boat", Default = false })
@@ -3656,25 +3428,6 @@ if Third_Sea then
         end
     end)
 
-
-   local ToggleTW = Tabs.Main:AddToggle("ToggleTW", {Title = "Auto Press W", Default = false })
-
-   ToggleTW:OnChanged(function(Value)
-    getgenv().AutoW = Value
-    end)
-    Options.ToggleTW:SetValue(false)
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if getgenv().AutoW then
-                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
-                end
-            end)
-        end
-        end)
-    
-
-
     local ToggleTerrorshark = Tabs.Main:AddToggle("ToggleTerrorshark", {Title = "Auto Kill Terrorshark", Default = false })
 
     ToggleTerrorshark:OnChanged(function(Value)
@@ -3715,122 +3468,7 @@ if Third_Sea then
 
 
 
-     local TogglePiranha = Tabs.Main:AddToggle("TogglePiranha", {Title = "Auto Kill Piranha", Default = false })
-
-     TogglePiranha:OnChanged(function(Value)
-        getgenv().farmpiranya = Value
-     end)
-     Options.TogglePiranha:SetValue(false)
-
-     spawn(function()
-        while wait() do
-            if  getgenv().farmpiranya then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Piranha" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipTool(SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        Click()
-                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                    until not  getgenv().farmpiranya or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                     
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
-                            Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else  
-                        end
-                    end
-                end)
-            end
-        end
-     end)
-
-
-
-     Tabs.Main:AddParagraph({
-        Title = "Elite Hunter",
-        Content = "Auto find and kill boss elite"
-    })
-
-
-    local ToggleElite = Tabs.Main:AddToggle("ToggleElite", {Title = "Auto Elite Hunter", Default = false })
-
-    ToggleElite:OnChanged(function(Value)
-       getgenv().AutoElite = Value
-       end)
-       Options.ToggleElite:SetValue(false)
-       spawn(function()
-           while task.wait() do
-               if getgenv().AutoElite then
-                   pcall(function()
-                       if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                           if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Urban") then
-                               if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
-                                   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                       if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                           if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
-                                               repeat task.wait()
-                                                   EquipTool(SelectWeapon)
-                                                   AutoHaki()
-                                                   Tween(v.HumanoidRootPart.CFrame * Pos)
-                                                   MonsterPosition = v.HumanoidRootPart.CFrame
-                                                   v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                                                   v.Humanoid.JumpPower = 0
-                                                   v.Humanoid.WalkSpeed = 0
-                                                   v.HumanoidRootPart.CanCollide = false
-                                                   --v.Humanoid:ChangeState(14)
-                                                   --v.Humanoid:ChangeState(11)
-                                                   Click()
-                                                   FarmPos = v.HumanoidRootPart.CFrame
-                                                   MonFarm = v.Name
-                                                   v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
-                                                   BringMobs = false
-                                               until getgenv().AutoElite == false or v.Humanoid.Health <= 0 or not v.Parent
-                                           end
-                                           BringMobs = true
-                                       end
-                                   end
-                               else
-                                   if BypassTP then
-                                   if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
-                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
-                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                   end
-                               else
-                                   if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
-                                       Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
-                                       Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-                                       Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                   end
-   
-                               end
-                               end
-                           end
-                       else
-                           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
-                       end
-                   end)
-               end
-			   BirngMobs = true
-           end
-       end)
-   
-    end
-
+     
 if Third_Sea then
 
        Tabs.Main:AddParagraph({
@@ -3972,23 +3610,6 @@ ToggleSeaBeAst:OnChanged(function(Value)
         end
     end)
 
-local ToggleAutoW = Tabs.Main:AddToggle("ToggleAutoW", {Title = "Auto Press W", Default = false })
-ToggleAutoW:OnChanged(function(Value)
-    getgenv().AutoW = Value
-    end)
- Options.ToggleAutoW:SetValue(false)
- spawn(function()
-    while wait() do
-        pcall(function()
-            if getgenv().AutoW then
-                game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
-            end
-        end)
-    end
-    end)
-
-
-
 
  Tabs.Main:AddParagraph({
     Title = "Mirage Island",
@@ -4061,296 +3682,6 @@ end
 end) 
 
  Options.ToggleMirage:SetValue(false)
-
-
- local AutoW = Tabs.Main:AddToggle("AutoW", {Title = "Auto Press W", Default = false })
- AutoW:OnChanged(function(Value)
-    getgenv().AutoW = Value
-     end)
-  Options.AutoW:SetValue(false)
-  spawn(function()
-    while wait() do
-        pcall(function()
-            if getgenv().AutoW then
-                game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
-            end
-        end)
-    end
-    end)
-end
-
-
-     Tabs.Main:AddParagraph({
-        Title = "Items",
-        Content = "Auto get items"
-    })
-
-
-    local ToggleHallow = Tabs.Main:AddToggle("ToggleHallow", {Title = "Auto Hallow Scythe [Fully]", Default = false })
-
-    ToggleHallow:OnChanged(function(Value)
-        AutoHallowSycthe = Value
-    end)
-    Options.ToggleHallow:SetValue(false)
-    spawn(function()
-        while wait() do
-            if AutoHallowSycthe then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Soul Reaper") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if string.find(v.Name , "Soul Reaper") then
-                                repeat task.wait()
-                                    AutoHaki()
-                                    EquipTool(SelectWeapon)
-                                    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                    Tween(v.HumanoidRootPart.CFrame * Pos)
-                                    v.HumanoidRootPart.Transparency = 1
-                                    sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-									Click()
-                                until v.Humanoid.Health <= 0 or AutoHallowSycthe == false
-                            end
-                        end
-                    elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
-                        repeat Tween(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8                        
-                        EquipTool("Hallow Essence")
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then
-                            Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else
-                        end
-                    end
-                end)
-            end
-        end
-    end)
-	
-	
-	spawn(function()
-           while wait(0.001) do
-           if AutoHallowSycthe then
-           local args = {
-            [1] = "Bones",
-            [2] = "Buy",
-            [3] = 1,
-            [4] = 1
-           }
-          
-           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-           end
-           end
-           end)
-        
-           
-           local ToggleYama = Tabs.Main:AddToggle("ToggleYama", {Title = "Auto Get Yama", Default = false })
-           ToggleYama:OnChanged(function(Value)
-            getgenv().AutoYama = Value
-           end)
-           Options.ToggleYama:SetValue(false)
-           spawn(function()
-            while wait() do
-                if getgenv().AutoYama then
-                    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress") >= 30 then
-                        repeat wait(.1)
-                            fireclickdetector(game:GetService("Workspace").Map.Waterfall.SealedKatana.Handle.ClickDetector)
-                        until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Yama") or not getgenv().AutoYama
-                    end
-                end
-            end
-        end)
-
-
-        local ToggleTushita = Tabs.Main:AddToggle("ToggleTushita", {Title = "Auto Tushita", Default = false })
-        ToggleTushita:OnChanged(function(Value)
-            AutoTushita = Value
-        end)
-        Options.ToggleTushita:SetValue(false)
-        local FaiFaoTushita = CFrame.new(-10238.875976563, 389.7912902832, -9549.7939453125)
-        spawn(function()
-            while task.wait(.1) do
-                if AutoTushita then
-                    pcall(function()
-                        autoTushita()
-                    end)
-                end
-            end
-        end)
-        function enemyrip()
-            Tween(CFrame.new(-5332.30371, 423.985413, -2673.48218))
-            wait()
-            if game.Workspace.Enemies:FindFirstChild("rip_indra True Form") then
-                local mobs = game.Workspace.Enemies:GetChildren()
-                for i,v in pairs(mobs) do
-                    if v.Name == "rip_indra True Form" and v:IsA("Model") and v:FindFirstChild("Humanoid") and
-                        v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                        return v
-                    end
-                end
-            end
-            return game.ReplicatedStorage:FindFirstChild("rip_indra True Form")
-        end
-        function enemyEliteBoss()
-            if game.Workspace.Enemies:FindFirstChild("Deandre") or game.Workspace.Enemies:FindFirstChild("Urban") or game.Workspace.Enemies:FindFirstChild("Diablo") then
-                local mobs = game.Workspace.Enemies:GetChildren()
-                for i,v in pairs(mobs) do
-                    if v.Name == "Deandre" or v.Name == "Diablo" or v.Name == "Urban"  and v:IsA("Model") and v:FindFirstChild("Humanoid") and
-                        v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                        return v
-                    end
-                end
-            end
-            return game.ReplicatedStorage:FindFirstChild("Deandre") or game.ReplicatedStorage:FindFirstChild("Urban") or game.ReplicatedStorage:FindFirstChild("Diablo")
-        end
-        function enemylongma()
-            Tween(CFrame.new(-10171.7051, 406.981995, -9552.31738))
-            if game.Workspace.Enemies:FindFirstChild("Longma") then
-                local mobs = game.Workspace.Enemies:GetChildren()
-                for i,v in pairs(mobs) do
-                    if v.Name == "Longma" and v:IsA("Model") and v:FindFirstChild("Humanoid") and
-                        v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                        return v
-                    end
-                end
-            end
-            return game.ReplicatedStorage:FindFirstChild("Longma")
-        end
-        function autoTushita()
-            if not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") and not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
-                if game.Workspace.Enemies:FindFirstChild("Deandre") or game.Workspace.Enemies:FindFirstChild("Urban") or game.Workspace.Enemies:FindFirstChild("Diablo") or game.ReplicatedStorage:FindFirstChild("Deandre") or game.ReplicatedStorage:FindFirstChild("Urban") or game.ReplicatedStorage:FindFirstChild("Diablo") then
-                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        repeat Tween(CFrame.new(5420.49219, 314.446045, -2823.07373)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                        wait(1)
-                        repeat Tween(CFrame.new(5420.49219, 314.446045, -2823.07373)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                        wait(1.1)
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
-                        wait(1)
-                    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                        CheckLevel()
-                        AutoHaki()
-                        pcall(function()
-                            EquipTool(SelectWeapon)
-                            pcall(function()
-                                local v = enemyEliteBoss()
-                                v.HumanoidRootPart.CanCollide = false
-                                v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
-                                Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                Click()
-                            end)
-                        end)
-                    end
-                else
-                    Tween(CFrame.new(-12554.9443, 337.194092, -7501.44727))
-                end
-            elseif game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("activateColor","Winter Sky")
-                wait(0.5)
-                repeat Tween(CFrame.new(-5420.16602, 1084.9657, -2666.8208)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-5420.16602, 1084.9657, -2666.8208)).Magnitude <= 10
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("activateColor","Pure Red")
-                wait(0.5)
-                repeat Tween(CFrame.new(-5414.41357, 309.865753, -2212.45776)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-5414.41357, 309.865753, -2212.45776)).Magnitude <= 10
-                wait(0.5)
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("activateColor","Snow White")
-                wait(0.5)
-                repeat Tween(CFrame.new(-4971.47559, 331.565765, -3720.02954)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-4971.47559, 331.565765, -3720.02954)).Magnitude <= 10
-                wait(0.5)
-                EquipTool("God's Chalice")
-                wait(0.5)
-                repeat Tween(CFrame.new(-5560.27295, 313.915466, -2663.89795)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-5560.27295, 313.915466, -2663.89795)).Magnitude <= 10
-                wait(0.5)
-                repeat Tween(CFrame.new(-5561.37451, 313.342529, -2663.4948)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(1)
-                repeat Tween(CFrame.new(5154.17676, 141.786423, 911.046326)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(0.2)
-                repeat Tween(CFrame.new(5148.03613, 162.352493, 910.548218)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(1)
-                EquipTool("Holy Torch")
-                wait(1)
-                wait(0.4)
-                repeat Tween(CFrame.new(-10752.7695, 412.229523, -9366.36328)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(0.4)
-                repeat Tween(CFrame.new(-11673.4111, 331.749023, -9474.34668)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(0.4)
-                repeat Tween(CFrame.new(-12133.3389, 519.47522, -10653.1904)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(0.4)
-                repeat Tween(CFrame.new(-13336.5, 485.280396, -6983.35254)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(0.4)
-                repeat Tween(CFrame.new(-13487.4131, 334.84845, -7926.34863)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
-                wait(1)
-            elseif game.Workspace.Enemies:FindFirstChild("Longma") or game.ReplicatedStorage:FindFirstChild("Longma") then
-                pcall(function()
-                    EquipTool(SelectWeapon)
-                    AutoHaki()
-                    pcall(function()
-                        local v = enemylongma()
-                        v.HumanoidRootPart.CanCollide = false
-                        v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
-                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                        Click()
-                    end)
-                end)
-            elseif game.Workspace.Enemies:FindFirstChild("rip_indra True Form")  or game.ReplicatedStorage:FindFirstChild("rip_indra True Form") then
-                pcall(function()
-                    EquipTool(SelectWeapon)
-                    AutoHaki()
-                    pcall(function()
-                        local v = enemyrip()
-                        v.HumanoidRootPart.CanCollide = false
-                        v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
-                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                        Click()
-                    end)
-                end)
-            else
-                Tween(CFrame.new(-12554.9443, 337.194092, -7501.44727))
-            end
-        end
-
-
-
-        local ToggleFactory = Tabs.Main:AddToggle("ToggleFactory", {Title = "Auto Farm Factory", Default = false })
-        ToggleFactory:OnChanged(function(Value)
-            getgenv().Factory = Value
-        end)
-        Options.ToggleFactory:SetValue(false)
-
-        spawn(function()
-            while wait() do
-                if getgenv().Factory then
-                    if game.Workspace.Enemies:FindFirstChild("Core") then
-                        for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                            if v.Name == "Core" and v.Humanoid.Health > 0 then
-                                repeat wait(.1)
-                                    repeat Tween(CFrame.new(448.46756, 199.356781, -441.389252))
-                                        wait()
-                                    until not getgenv().Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781, -441.389252)).Magnitude <= 10
-                                    EquipTool(SelectWeapon)
-                                    AutoHaki()
-                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                    v.HumanoidRootPart.Transparency = 1
-                                    v.Humanoid.JumpPower = 0
-                                    v.Humanoid.WalkSpeed = 0
-                                    v.HumanoidRootPart.CanCollide = false
-                                    FarmPos = v.HumanoidRootPart.CFrame
-                                    MonFarm = v.Name
-                                    Click()
-                                until not v.Parent or v.Humanoid.Health <= 0  or getgenv().Factory == false
-                            end
-                        end
-                    elseif game.ReplicatedStorage:FindFirstChild("Core") then
-                        repeat Tween(CFrame.new(448.46756, 199.356781, -441.389252))
-                            wait()
-                        until not getgenv().Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781, -441.389252)).Magnitude <= 10
-                    end
-                end
-            end
-        end)
-
-
-
-
-
-   
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Setting
     Tabs.Setting:AddParagraph({
@@ -4573,6 +3904,571 @@ ToggleF:OnChanged(function(Value)
    SkillF = Value
     end)
 Options.ToggleF:SetValue(true)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--weapons
+Tabs.WP:AddParagraph({
+        Title = "Factory",
+        Content = "Auto Kill Core"
+    })
+    local ToggleFactory = Tabs.WP:AddToggle("ToggleFactory", {Title = "Auto Farm Factory", Default = false })
+        ToggleFactory:OnChanged(function(Value)
+            getgenv().Factory = Value
+        end)
+        Options.ToggleFactory:SetValue(false)
+
+        spawn(function()
+            while wait() do
+                if getgenv().Factory then
+                    if game.Workspace.Enemies:FindFirstChild("Core") then
+                        for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if v.Name == "Core" and v.Humanoid.Health > 0 then
+                                repeat wait(.1)
+                                    repeat Tween(CFrame.new(448.46756, 199.356781, -441.389252))
+                                        wait()
+                                    until not getgenv().Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781, -441.389252)).Magnitude <= 10
+                                    EquipTool(SelectWeapon)
+                                    AutoHaki()
+                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.Transparency = 1
+                                    v.Humanoid.JumpPower = 0
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.HumanoidRootPart.CanCollide = false
+                                    FarmPos = v.HumanoidRootPart.CFrame
+                                    MonFarm = v.Name
+                                    Click()
+                                until not v.Parent or v.Humanoid.Health <= 0  or getgenv().Factory == false
+                            end
+                        end
+                    elseif game.ReplicatedStorage:FindFirstChild("Core") then
+                        repeat Tween(CFrame.new(448.46756, 199.356781, -441.389252))
+                            wait()
+                        until not getgenv().Factory or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(448.46756, 199.356781, -441.389252)).Magnitude <= 10
+                    end
+                end
+            end
+        end)
+        
+local ToggleRandomBone = Tabs.WP:AddToggle("ToggleRandomBone", {Title = "Random Bone", Default = false })
+ToggleRandomBone:OnChanged(function(Value)  
+		getgenv().AutoRandomBone = Value
+end)
+Options.ToggleRandomBone:SetValue(false)
+	
+spawn(function()
+	while wait(0.0000000000000000000000000000000000000000000000000001) do
+	if getgenv().AutoRandomBone then
+	local args = {
+	 [1] = "Bones",
+	 [2] = "Buy",
+	 [3] = 1,
+	 [4] = 1
+	}
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end
+	end
+	end)
+	
+	Tabs.WP:AddParagraph({
+        Title = "Elite Hunter",
+        Content = "Auto find and kill boss elite"
+    })
+    local ToggleBone = Tabs.WP:AddToggle("ToggleBone", {Title = "Auto Farm Bone", Default = false })
+ToggleBone:OnChanged(function(Value)
+    getgenv().AutoBone = Value
+end)
+Options.ToggleBone:SetValue(false)
+local FaiFaoQuestBone =  CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
+
+
+spawn(function()
+    while wait() do
+        if getgenv().AutoBone then
+            pcall(function()
+                local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Container.QuestTitle.Title.Text
+                if not string.find(QuestTitle, "Demonic Soul") then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                end
+                if game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Visible == false then
+                    if BypassTP then
+                        wait()
+                       if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - FaiFaoQuestBone.Position).Magnitude > 2500 then
+                       BTP(FaiFaoQuestBone)
+              
+                       elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - FaiFaoQuestBone.Position).Magnitude < 2500 then
+               
+                       Tween(FaiFaoQuestBone)
+                       end
+                 else
+          
+                         Tween(FaiFaoQuestBone)
+                         end
+                if (FaiFaoQuestBone.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then    
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest","HauntedQuest2",1)
+                    end
+                elseif game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Visible == true then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                if v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
+                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Container.QuestTitle.Title.Text, "Demonic Soul") then
+                                        repeat task.wait()
+                                            AutoHaki()
+                                            EquipTool(SelectWeapon)
+                                            Tween(v.HumanoidRootPart.CFrame * Pos)
+			                                v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+                                            v.HumanoidRootPart.Transparency = 1
+                                            v.Humanoid.JumpPower = 0
+                                            v.Humanoid.WalkSpeed = 0
+                                            v.HumanoidRootPart.CanCollide = false
+                                            FarmPos = v.HumanoidRootPart.CFrame
+                                            MonFarm = v.Name
+                                            Click()
+                                        until not getgenv().AutoBone or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Visible == false
+                                    else
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul") then
+                        Tween(v.HumanoidRootPart.CFrame * Pos2)
+                        end
+                    end
+                    
+                end
+            end)
+        end
+    end
+end)
+
+Tabs.WP:AddParagraph({
+        Title = "Elite Hunt",
+        Content = "Auto find and kill Elite"
+    })
+
+    local ToggleElite = Tabs.WP:AddToggle("ToggleElite", {Title = "Auto Elite Hunter", Default = false })
+
+    ToggleElite:OnChanged(function(Value)
+       getgenv().AutoElite = Value
+       end)
+       Options.ToggleElite:SetValue(false)
+       spawn(function()
+           while task.wait() do
+               if getgenv().AutoElite then
+                   pcall(function()
+                       if game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Visible == true then
+                           if string.find(game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Container.QuestTitle.Title.Text,"Urban") then
+                               if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
+                                   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                       if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                           if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
+                                               repeat task.wait()
+                                                   EquipTool(SelectWeapon)
+                                                   AutoHaki()
+                                                   Tween(v.HumanoidRootPart.CFrame * Pos)
+                                                   MonsterPosition = v.HumanoidRootPart.CFrame
+                                                   v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                                                   v.Humanoid.JumpPower = 0
+                                                   v.Humanoid.WalkSpeed = 0
+                                                   v.HumanoidRootPart.CanCollide = false
+                                                   --v.Humanoid:ChangeState(14)
+                                                   --v.Humanoid:ChangeState(11)
+                                                   Click()
+                                                   FarmPos = v.HumanoidRootPart.CFrame
+                                                   MonFarm = v.Name
+                                                   v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+                                                   BringMobs = false
+                                               until getgenv().AutoElite == false or v.Humanoid.Health <= 0 or not v.Parent
+                                           end
+                                           BringMobs = true
+                                       end
+                                   end
+                               else
+                                   if BypassTP then
+                                   if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                   end
+                               else
+                                   if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+                                       Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                                       Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                                       Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                   end
+   
+                               end
+                               end
+                           end
+                       else
+                           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
+                       end
+                   end)
+               end
+			   BirngMobs = true
+           end
+       end)
+   
+    end
+    
+    Tabs.WP:AddParagraph({
+        Title = "Cake Prince",
+        Content = "Auto find and kill Prince"
+    })
+    
+    local ToggleCake = Tabs.WP:AddToggle("ToggleCake", {Title = "Auto Farm Cake Prince", Default = false })
+ToggleCake:OnChanged(function(Value)
+ getgenv().CakePrince = Value
+end)
+Options.ToggleCake:SetValue(false)
+
+spawn(function()
+    while task.wait() do
+    if getgenv().CakePrince then
+    game.ReplicatedStorage.Remotes.CommF_:InvokeServer("CakePrinceSpawner")
+    if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+    if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+    if getgenv().CakePrince and v.Name == "Cake Prince" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+    repeat task.wait()
+    AutoHaki()
+    EquipTool(SelectWeapon)
+    Tween(v.HumanoidRootPart.CFrame * Pos)
+    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+    v.HumanoidRootPart.Transparency = 1
+    v.Humanoid.JumpPower = 0
+    v.Humanoid.WalkSpeed = 0
+    v.HumanoidRootPart.CanCollide = false
+    FarmPos = v.HumanoidRootPart.CFrame
+    MonFarm = v.Name
+    game:GetService'VirtualUser':CaptureController()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+	BringMobs = false
+    until not getgenv().CakePrince or not v.Parent or v.Humanoid.Health <= 0
+	BringMobs = true
+    end
+    end
+    else
+      if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 and (CFrame.new(-1990.672607421875, 4532.99951171875, -14973.6748046875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 2000 then
+    Tween(CFrame.new(-2151.82153, 149.315704, -12404.9053))
+	BirngMobs = true
+    end
+    end
+    else
+      if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
+    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+    if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+    repeat task.wait()
+    AutoHaki()
+    EquipTool(SelectWeapon)
+    Tween(v.HumanoidRootPart.CFrame * Pos)
+    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+    v.HumanoidRootPart.Transparency = 1
+    v.Humanoid.JumpPower = 0
+    v.Humanoid.WalkSpeed = 0
+    v.HumanoidRootPart.CanCollide = false
+    FarmPos = v.HumanoidRootPart.CFrame
+    MonFarm = v.Name
+    game:GetService'VirtualUser':CaptureController()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+    until not getgenv().CakePrince or not v.Parent or v.Humanoid.Health <= 0
+    end
+    end
+    end
+    else
+      local cakepos = CFrame.new(-2077, 252, -12373)
+    if BypassTP then
+    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude > 2000 then
+    BTP(cakepos)
+    wait(3)
+    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude < 2000 then
+    Tween(cakepos)
+    end
+    else
+    Tween(v.HumanoidRootPart.CFrame * Pos2)
+    end
+    end
+    end
+    end
+    end
+    end)
+    
+    Tabs.WP:AddParagraph({
+        Title = "Piranha",
+        Content = "Auto find and kill Piranha"
+    })
+    
+    local TogglePiranha = Tabs.WP:AddToggle("TogglePiranha", {Title = "Auto Kill Piranha", Default = false })
+
+     TogglePiranha:OnChanged(function(Value)
+        getgenv().farmpiranya = Value
+     end)
+     Options.TogglePiranha:SetValue(false)
+
+     spawn(function()
+        while wait() do
+            if  getgenv().farmpiranya then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Piranha" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipTool(SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        Click()
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                    until not  getgenv().farmpiranya or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                     
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
+                            Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else  
+                        end
+                    end
+                end)
+            end
+        end
+     end)
+
+Tabs.WP:AddParagraph({
+        Title = "Items",
+        Content = "Auto get items"
+    })
+
+
+    local ToggleHallow = Tabs.WP:AddToggle("ToggleHallow", {Title = "Auto Hallow Scythe [Fully]", Default = false })
+
+    ToggleHallow:OnChanged(function(Value)
+        AutoHallowSycthe = Value
+    end)
+    Options.ToggleHallow:SetValue(false)
+    spawn(function()
+        while wait() do
+            if AutoHallowSycthe then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Soul Reaper") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if string.find(v.Name , "Soul Reaper") then
+                                repeat task.wait()
+                                    AutoHaki()
+                                    EquipTool(SelectWeapon)
+                                    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                    Tween(v.HumanoidRootPart.CFrame * Pos)
+                                    v.HumanoidRootPart.Transparency = 1
+                                    sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+									Click()
+                                until v.Humanoid.Health <= 0 or AutoHallowSycthe == false
+                            end
+                        end
+                    elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
+                        repeat Tween(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8                        
+                        EquipTool("Hallow Essence")
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then
+                            Tween(game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+	
+	
+	spawn(function()
+           while wait(0.001) do
+           if AutoHallowSycthe then
+           local args = {
+            [1] = "Bones",
+            [2] = "Buy",
+            [3] = 1,
+            [4] = 1
+           }
+          
+           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+           end
+           end
+           end)
+        
+           
+           local ToggleYama = Tabs.WP:AddToggle("ToggleYama", {Title = "Auto Get Yama", Default = false })
+           ToggleYama:OnChanged(function(Value)
+            getgenv().AutoYama = Value
+           end)
+           Options.ToggleYama:SetValue(false)
+           spawn(function()
+            while wait() do
+                if getgenv().AutoYama then
+                    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress") >= 30 then
+                        repeat wait(.1)
+                            fireclickdetector(game:GetService("Workspace").Map.Waterfall.SealedKatana.Handle.ClickDetector)
+                        until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Yama") or not getgenv().AutoYama
+                    end
+                end
+            end
+        end)
+
+
+        local ToggleTushita = Tabs.WP:AddToggle("ToggleTushita", {Title = "Auto Tushita", Default = false })
+        ToggleTushita:OnChanged(function(Value)
+            AutoTushita = Value
+        end)
+        Options.ToggleTushita:SetValue(false)
+        local FaiFaoTushita = CFrame.new(-10238.875976563, 389.7912902832, -9549.7939453125)
+        spawn(function()
+            while task.wait(.1) do
+                if AutoTushita then
+                    pcall(function()
+                        autoTushita()
+                    end)
+                end
+            end
+        end)
+        function enemyrip()
+            Tween(CFrame.new(-5332.30371, 423.985413, -2673.48218))
+            wait()
+            if game.Workspace.Enemies:FindFirstChild("rip_indra True Form") then
+                local mobs = game.Workspace.Enemies:GetChildren()
+                for i,v in pairs(mobs) do
+                    if v.Name == "rip_indra True Form" and v:IsA("Model") and v:FindFirstChild("Humanoid") and
+                        v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                        return v
+                    end
+                end
+            end
+            return game.ReplicatedStorage:FindFirstChild("rip_indra True Form")
+        end
+        function enemyEliteBoss()
+            if game.Workspace.Enemies:FindFirstChild("Deandre") or game.Workspace.Enemies:FindFirstChild("Urban") or game.Workspace.Enemies:FindFirstChild("Diablo") then
+                local mobs = game.Workspace.Enemies:GetChildren()
+                for i,v in pairs(mobs) do
+                    if v.Name == "Deandre" or v.Name == "Diablo" or v.Name == "Urban"  and v:IsA("Model") and v:FindFirstChild("Humanoid") and
+                        v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                        return v
+                    end
+                end
+            end
+            return game.ReplicatedStorage:FindFirstChild("Deandre") or game.ReplicatedStorage:FindFirstChild("Urban") or game.ReplicatedStorage:FindFirstChild("Diablo")
+        end
+        function enemylongma()
+            Tween(CFrame.new(-10171.7051, 406.981995, -9552.31738))
+            if game.Workspace.Enemies:FindFirstChild("Longma") then
+                local mobs = game.Workspace.Enemies:GetChildren()
+                for i,v in pairs(mobs) do
+                    if v.Name == "Longma" and v:IsA("Model") and v:FindFirstChild("Humanoid") and
+                        v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                        return v
+                    end
+                end
+            end
+            return game.ReplicatedStorage:FindFirstChild("Longma")
+        end
+        function autoTushita()
+            if not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") and not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
+                if game.Workspace.Enemies:FindFirstChild("Deandre") or game.Workspace.Enemies:FindFirstChild("Urban") or game.Workspace.Enemies:FindFirstChild("Diablo") or game.ReplicatedStorage:FindFirstChild("Deandre") or game.ReplicatedStorage:FindFirstChild("Urban") or game.ReplicatedStorage:FindFirstChild("Diablo") then
+                    if game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Visible == false then
+                        repeat Tween(CFrame.new(5420.49219, 314.446045, -2823.07373)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                        wait(1)
+                        repeat Tween(CFrame.new(5420.49219, 314.446045, -2823.07373)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                        wait(1.1)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
+                        wait(1)
+                    elseif game:GetService("Players").LocalPlayer.PlayerGui.WP.Quest.Visible == true then
+                        CheckLevel()
+                        AutoHaki()
+                        pcall(function()
+                            EquipTool(SelectWeapon)
+                            pcall(function()
+                                local v = enemyEliteBoss()
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+                                Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                                Click()
+                            end)
+                        end)
+                    end
+                else
+                    Tween(CFrame.new(-12554.9443, 337.194092, -7501.44727))
+                end
+            elseif game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("activateColor","Winter Sky")
+                wait(0.5)
+                repeat Tween(CFrame.new(-5420.16602, 1084.9657, -2666.8208)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-5420.16602, 1084.9657, -2666.8208)).Magnitude <= 10
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("activateColor","Pure Red")
+                wait(0.5)
+                repeat Tween(CFrame.new(-5414.41357, 309.865753, -2212.45776)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-5414.41357, 309.865753, -2212.45776)).Magnitude <= 10
+                wait(0.5)
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("activateColor","Snow White")
+                wait(0.5)
+                repeat Tween(CFrame.new(-4971.47559, 331.565765, -3720.02954)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-4971.47559, 331.565765, -3720.02954)).Magnitude <= 10
+                wait(0.5)
+                EquipTool("God's Chalice")
+                wait(0.5)
+                repeat Tween(CFrame.new(-5560.27295, 313.915466, -2663.89795)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(-5560.27295, 313.915466, -2663.89795)).Magnitude <= 10
+                wait(0.5)
+                repeat Tween(CFrame.new(-5561.37451, 313.342529, -2663.4948)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(1)
+                repeat Tween(CFrame.new(5154.17676, 141.786423, 911.046326)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(0.2)
+                repeat Tween(CFrame.new(5148.03613, 162.352493, 910.548218)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(1)
+                EquipTool("Holy Torch")
+                wait(1)
+                wait(0.4)
+                repeat Tween(CFrame.new(-10752.7695, 412.229523, -9366.36328)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(0.4)
+                repeat Tween(CFrame.new(-11673.4111, 331.749023, -9474.34668)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(0.4)
+                repeat Tween(CFrame.new(-12133.3389, 519.47522, -10653.1904)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(0.4)
+                repeat Tween(CFrame.new(-13336.5, 485.280396, -6983.35254)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(0.4)
+                repeat Tween(CFrame.new(-13487.4131, 334.84845, -7926.34863)) wait() until not AutoTushita or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(5420.49219, 314.446045, -2823.07373)).Magnitude <= 10
+                wait(1)
+            elseif game.Workspace.Enemies:FindFirstChild("Longma") or game.ReplicatedStorage:FindFirstChild("Longma") then
+                pcall(function()
+                    EquipTool(SelectWeapon)
+                    AutoHaki()
+                    pcall(function()
+                        local v = enemylongma()
+                        v.HumanoidRootPart.CanCollide = false
+                        v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                        Click()
+                    end)
+                end)
+            elseif game.Workspace.Enemies:FindFirstChild("rip_indra True Form")  or game.ReplicatedStorage:FindFirstChild("rip_indra True Form") then
+                pcall(function()
+                    EquipTool(SelectWeapon)
+                    AutoHaki()
+                    pcall(function()
+                        local v = enemyrip()
+                        v.HumanoidRootPart.CanCollide = false
+                        v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+                        Click()
+                    end)
+                end)
+            else
+                Tween(CFrame.new(-12554.9443, 337.194092, -7501.44727))
+            end
+        end
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Stats
@@ -5843,27 +5739,6 @@ end)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --shop
 
-local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Random Bone", Default = false })
-ToggleRandomBone:OnChanged(function(Value)  
-		getgenv().AutoRandomBone = Value
-end)
-Options.ToggleRandomBone:SetValue(false)
-	
-spawn(function()
-	while wait(0.0000000000000000000000000000000000000000000000000001) do
-	if getgenv().AutoRandomBone then
-	local args = {
-	 [1] = "Bones",
-	 [2] = "Buy",
-	 [3] = 1,
-	 [4] = 1
-	}
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-	end
-	end
-	end)
-
-
 Tabs.Shop:AddButton({
 	Title = "Geppo",
 	Description = "",
@@ -6223,3 +6098,82 @@ Tabs.Misc:AddButton({
 		game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
 	end
 })
+
+Tabs.Misc:AddButton({
+        Title = "Redeem All Code",
+        Description = "Redeem all code x2 exp",
+        Callback = function()
+            UseCode()
+        end
+    })
+
+    function UseCode(Text)
+        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
+    end
+    UseCode("Sub2Fer999")
+    UseCode("Enyu_is_Pro")
+    UseCode("Magicbus")
+    UseCode("JCWK")
+    UseCode("Starcodeheo")
+    UseCode("Bluxxy")
+    UseCode("THEGREATACE")
+    UseCode("SUB2GAMERROBOT_EXP1")
+    UseCode("StrawHatMaine")
+    UseCode("Sub2OfficialNoobie")
+    UseCode("SUB2NOOBMASTER123")
+    UseCode("Sub2Daigrock")
+    UseCode("Axiore")
+    UseCode("TantaiGaming")
+    UseCode("STRAWHATMAINE")
+
+
+
+    Tabs.Misc:AddButton({
+        Title = "Fps Booster",
+        Description = "Boost your fps",
+        Callback = function()
+            FPSBooster()
+        end
+    })
+
+    function FPSBooster()
+        local decalsyeeted = true
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        sethiddenproperty(l,"Technology",2)
+        sethiddenproperty(t,"Decoration",false)
+        t.WaterWaveSize = 0
+        t.WaterWaveSpeed = 0
+        t.WaterReflectance = 0
+        t.WaterTransparency = 0
+        l.GlobalShadows = false
+        l.FogEnd = 9e9
+        l.Brightness = 0
+        settings().Rendering.QualityLevel = "Level01"
+        for i, v in pairs(g:GetDescendants()) do
+            if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                v.Material = "Plastic"
+                v.Reflectance = 0
+            elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+                v.Transparency = 1
+            elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                v.Lifetime = NumberRange.new(0)
+            elseif v:IsA("Explosion") then
+                v.BlastPressure = 1
+                v.BlastRadius = 1
+            elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                v.Enabled = false
+            elseif v:IsA("MeshPart") then
+                v.Material = "Plastic"
+                v.Reflectance = 0
+                v.TextureID = 10385902758728957
+            end
+        end
+        for i, e in pairs(l:GetChildren()) do
+            if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                e.Enabled = false
+            end
+        end
+    end
