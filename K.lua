@@ -2298,19 +2298,32 @@ function BTP(p)
 
 ---- Create the GUI elements
 local ScreenGui = Instance.new("ScreenGui")
+local BorderFrame = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local UIStroke = Instance.new("UIStroke")
 
 -- Set up the ScreenGui
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+-- Set up the BorderFrame
+BorderFrame.Parent = ScreenGui
+BorderFrame.BackgroundTransparency = 1
+BorderFrame.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+BorderFrame.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
+
+-- Add the UIStroke to create a glowing effect
+UIStroke.Parent = BorderFrame
+UIStroke.Color = Color3.fromRGB(255, 0, 0) -- Red border color
+UIStroke.Thickness = 4 -- Adjust thickness as needed
+UIStroke.Transparency = 0.5 -- Adjust transparency for glow effect
+
 -- Set up the TextButton
-TextButton.Parent = ScreenGui
+TextButton.Parent = BorderFrame
 TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Background color black
-TextButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
-TextButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
+TextButton.Size = UDim2.new(1, 0, 1, 0)
 TextButton.Text = "testHub"
 TextButton.TextColor3 = Color3.fromRGB(255, 0, 0) -- Text color red
 
@@ -2320,23 +2333,20 @@ UICorner.Parent = TextButton
 UIAspectRatioConstraint.Parent = TextButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
--- Function to rotate the UIGradient (if you decide to add it back)
-local function HCEGY_fake_script()
-	local script = Instance.new('LocalScript', TextButton) -- Changed to TextButton
-
+-- Function to create a glowing effect
+local function GlowingEffect()
 	local TweenService = game:GetService("TweenService")
-	local tweeninfo = TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
-	local tween = TweenService:Create(script.Parent, tweeninfo, {Rotation = 360})
+	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true)
+	local tweenGoals = {Transparency = 0}
+	local tween = TweenService:Create(UIStroke, tweenInfo, tweenGoals)
 	tween:Play()
 end
-coroutine.wrap(HCEGY_fake_script)()
+GlowingEffect()
 
 -- Function to drag the TextButton and handle clicks
-local function YTZCAJC_fake_script()
-	local script = Instance.new('LocalScript', TextButton)
-
+local function DragAndClick()
 	local UIS = game:GetService('UserInputService')
-	local frame = script.Parent
+	local frame = TextButton
 	local dragToggle = nil
 	local dragSpeed = 0.25
 	local dragStart = nil
@@ -2369,11 +2379,11 @@ local function YTZCAJC_fake_script()
 			end
 		end
 	end)
-	script.Parent.MouseButton1Click:Connect(function()
+	frame.MouseButton1Click:Connect(function()
 		game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
 	end)
 end
-coroutine.wrap(YTZCAJC_fake_script)()
+DragAndClick()
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Hehe
 local posX = 0
